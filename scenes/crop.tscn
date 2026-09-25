@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ceklg6o0gleil"]
+
+[ext_resource type="Script" uid="uid://dfnyfm0l1siw" path="res://scripts/crop.gd" id="1_fe780"]
+[ext_resource type="Texture2D" uid="uid://cuuuux4qf4lfh" path="res://sprites/PixelFarm_Crops.png" id="1_pl0dt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe780"]
+atlas = ExtResource("1_pl0dt")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfmy0"]
+atlas = ExtResource("1_pl0dt")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dbbp"]
+atlas = ExtResource("1_pl0dt")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("1_pl0dt")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="GDScript" id="GDScript_pfmy0"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Crop" type="Node2D" unique_id=1886922391]
+script = ExtResource("1_fe780")
+stage_1_texture = SubResource("AtlasTexture_fe780")
+stage_2_texture = SubResource("AtlasTexture_pfmy0")
+stage_3_texture = SubResource("AtlasTexture_2dbbp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=47062313]
+texture = SubResource("AtlasTexture_tbgi4")
+script = SubResource("GDScript_pfmy0")
