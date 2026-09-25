@@ -15,7 +15,13 @@ func plant_corp() -> void:
 		
 	if crop_scene:
 			var crop = crop_scene.instantiate()
-			add_child(crop)
+
+			var main = get_tree().current_scene
+			main.add_child(crop)
+
+			crop.global_position = global_position
+			crop.farm_plot = self
+
 			is_planted = true
 			print("Planting corp!")
 	

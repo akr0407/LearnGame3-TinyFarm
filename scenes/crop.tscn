@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfnyfm0l1siw" path="res://scripts/crop.gd" id="1_fe780"]
 [ext_resource type="Texture2D" uid="uid://cuuuux4qf4lfh" path="res://sprites/PixelFarm_Crops.png" id="1_pl0dt"]
+[ext_resource type="Texture2D" uid="uid://bim5314r7cwd" path="res://sprites/PixelFarm_Tileset.png" id="3_pfmy0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fe780"]
 atlas = ExtResource("1_pl0dt")
@@ -14,6 +15,10 @@ region = Rect2(48, 16, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dbbp"]
 atlas = ExtResource("1_pl0dt")
 region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs3mr"]
+atlas = ExtResource("3_pfmy0")
+region = Rect2(144.57503, 64.37993, 14.363525, 14.36351)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
 atlas = ExtResource("1_pl0dt")
@@ -29,16 +34,30 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
-[node name="Crop" type="Node2D" unique_id=1886922391]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(10, 6)
+
+[node name="Crop" type="Area2D" unique_id=1899698657]
+y_sort_enabled = true
 script = ExtResource("1_fe780")
 stage_1_texture = SubResource("AtlasTexture_fe780")
 stage_2_texture = SubResource("AtlasTexture_pfmy0")
 stage_3_texture = SubResource("AtlasTexture_2dbbp")
 
+[node name="WaterIndicator" type="Sprite2D" parent="." unique_id=1764960651]
+visible = false
+texture = SubResource("AtlasTexture_hs3mr")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=47062313]
 texture = SubResource("AtlasTexture_tbgi4")
 script = SubResource("GDScript_pfmy0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=483302861]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_g2els")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d08m7xtl3exs3" path="res://sprites/PixelFarm_Farmer-Sheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://4fqyc0gd5cbl" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://droh5oabact25" path="res://sprites/PixelFarm_Tool Animation-Sheet.png" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -73,9 +74,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
-radius = 7.0
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(1, 9, 51, 52)
 
 [node name="Player" type="CharacterBody2D" unique_id=1962932413]
+y_sort_enabled = true
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=409592391]
@@ -84,5 +90,12 @@ sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=574482276]
-position = Vector2(0, -6)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2066464969]
+zoom = Vector2(2, 2)
+
+[node name="ToolSprite" type="Sprite2D" parent="." unique_id=1437205887]
+position = Vector2(11, -9)
+texture = SubResource("AtlasTexture_y4r1p")
