@@ -68,4 +68,11 @@ func water_crop() -> void:
 	
 	is_watered = true
 	$WaterIndicator.visible = true
+	
+	var player = get_tree().get_first_node_in_group("player")
+	
+	if player.selected_tool == "watering_can":
+		player.face_target(global_position)
+		player.use_watering_can()
+	
 	print("Crop watered")

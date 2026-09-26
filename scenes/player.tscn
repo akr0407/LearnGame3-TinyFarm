@@ -78,10 +78,34 @@ radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
 atlas = ExtResource("3_qhqgy")
-region = Rect2(1, 9, 51, 52)
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hs3mr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}],
+"loop": 0,
+"name": &"water",
+"speed": 8.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1962932413]
-y_sort_enabled = true
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=409592391]
@@ -96,6 +120,9 @@ shape = SubResource("CircleShape2D_u8vuu")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2066464969]
 zoom = Vector2(2, 2)
 
-[node name="ToolSprite" type="Sprite2D" parent="." unique_id=1437205887]
-position = Vector2(11, -9)
-texture = SubResource("AtlasTexture_y4r1p")
+[node name="ToolSprite" type="AnimatedSprite2D" parent="." unique_id=730571808]
+position = Vector2(8, -21)
+sprite_frames = SubResource("SpriteFrames_hs3mr")
+animation = &"water"
+frame = 2
+frame_progress = 1.0
