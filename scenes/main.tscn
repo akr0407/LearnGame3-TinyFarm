@@ -168,10 +168,27 @@ position = Vector2(31, 101)
 [node name="UI" type="CanvasLayer" parent="." unique_id=1844300372]
 
 [node name="CropLabel" type="Label" parent="UI" unique_id=897996258]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 24.0
 text = "Crops : 0"
+
+[node name="DayLabel" type="Label" parent="UI" unique_id=1640992634]
+offset_left = 4.0
+offset_top = 21.0
+offset_right = 52.0
+offset_bottom = 44.0
+text = "Day: 1"
+
+[node name="NextDayButton" type="Button" parent="UI" unique_id=294764296]
+offset_left = 1063.0
+offset_top = 9.0
+offset_right = 1142.0
+offset_bottom = 40.0
+text = "Next Day"
 
 [connection signal="body_exited" from="FarmPlot" to="FarmPlot" method="_on_body_exited"]
 [connection signal="body_exited" from="FarmPlot2" to="FarmPlot2" method="_on_body_exited"]
 [connection signal="body_exited" from="FarmPlot3" to="FarmPlot3" method="_on_body_exited"]
+[connection signal="pressed" from="UI/NextDayButton" to="." method="_on_next_day_button_pressed"]

@@ -15,14 +15,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	growth_timer += delta
-	
-	if growth_timer >= 5.0:
-		growth_timer = 0.0
-		
-		if is_watered:
-			grow_crop()
+#func _process(delta: float) -> void:
+	#growth_timer += delta
+	#
+	#if growth_timer >= 5.0:
+		#growth_timer = 0.0
+		#
+		#if is_watered:
+			#grow_crop()
 
 func grow_crop() -> void:
 	if growth_stage < 3:
@@ -76,3 +76,7 @@ func water_crop() -> void:
 		player.use_watering_can()
 	
 	print("Crop watered")
+
+func next_day() -> void:
+	if is_watered:
+		grow_crop()
