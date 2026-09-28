@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var growth_stage = 1
 var growth_timer = 0.0
