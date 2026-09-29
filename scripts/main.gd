@@ -4,6 +4,7 @@ var crop_count = 0
 var day = 1
 var money = 0
 var seeds = 3
+var daily_goal = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,11 @@ func _process(_delta: float) -> void:
 func add_crop() -> void:
 	crop_count += 1
 	$UI/CropLabel.text = "Crops: " + str(crop_count) 
+	$UI/GoalLabel.text = "Goal: " + str(crop_count) + " / " + str(daily_goal) + " crops"
+	
+	if crop_count >= daily_goal:
+		print("Daily goals achieved!")
+		$UI/VictoryPanel.visible = true
 
 func update_seed_label() -> void:
 	$UI/SeedLabel.text = "Seeds: " + str(seeds)
@@ -79,3 +85,7 @@ func _on_shop_button_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	$UI/ShopPanel.visible = false
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()

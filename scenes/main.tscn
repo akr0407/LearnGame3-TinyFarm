@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cpsm665367kf0" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cvtd32eofd45p" path="res://scenes/farm_plot.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ceklg6o0gleil" path="res://scenes/crop.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bc37lw6byadcx" path="res://scenes/chicken.tscn" id="6_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -162,6 +163,10 @@ crop_scene = ExtResource("4_jyhfs")
 position = Vector2(200, 136)
 crop_scene = ExtResource("4_jyhfs")
 
+[node name="Chicken" parent="." unique_id=1851406013 instance=ExtResource("6_tefeu")]
+y_sort_enabled = true
+position = Vector2(186, 69)
+
 [node name="Player" parent="." unique_id=1962932413 groups=["player"] instance=ExtResource("1_o5qli")]
 position = Vector2(31, 101)
 
@@ -187,6 +192,12 @@ offset_top = 21.0
 offset_right = 52.0
 offset_bottom = 44.0
 text = "Day: 1"
+
+[node name="GoalLabel" type="Label" parent="UI" unique_id=2106458917]
+offset_left = 117.0
+offset_right = 232.0
+offset_bottom = 23.0
+text = "Goal: 0/3 crops"
 
 [node name="MoneyLabel" type="Label" parent="UI" unique_id=650826694]
 offset_left = 3.0
@@ -291,6 +302,47 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Close"
 
+[node name="VictoryPanel" type="Panel" parent="UI" unique_id=977300625]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -122.0
+offset_right = 229.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryLabel" type="Label" parent="UI/VictoryPanel" unique_id=1536697066]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_top = 20.0
+offset_right = 59.5
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "Goal Complete!"
+
+[node name="RestartButton" type="Button" parent="UI/VictoryPanel" unique_id=1931140834]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -15.5
+offset_right = 32.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Again"
+
 [connection signal="body_exited" from="FarmPlot" to="FarmPlot" method="_on_body_exited"]
 [connection signal="body_exited" from="FarmPlot2" to="FarmPlot2" method="_on_body_exited"]
 [connection signal="body_exited" from="FarmPlot3" to="FarmPlot3" method="_on_body_exited"]
@@ -300,3 +352,4 @@ text = "Close"
 [connection signal="pressed" from="UI/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="UI/ShopPanel/BuySeedButton" to="." method="_on_buy_seed_button_pressed"]
 [connection signal="pressed" from="UI/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="UI/VictoryPanel/RestartButton" to="." method="_on_restart_button_pressed"]
