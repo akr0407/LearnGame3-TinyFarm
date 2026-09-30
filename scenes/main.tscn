@@ -173,44 +173,50 @@ position = Vector2(31, 101)
 [node name="UI" type="CanvasLayer" parent="." unique_id=1844300372]
 
 [node name="CropLabel" type="Label" parent="UI" unique_id=897996258]
-offset_left = 3.0
-offset_top = 1.0
-offset_right = 70.0
-offset_bottom = 24.0
+offset_left = 8.0
+offset_right = 75.0
+offset_bottom = 23.0
 text = "Crops : 0"
 
 [node name="SeedLabel" type="Label" parent="UI" unique_id=673619729]
-offset_left = 2.0
-offset_top = 61.0
-offset_right = 65.0
-offset_bottom = 84.0
+offset_left = 8.0
+offset_top = 72.0
+offset_right = 71.0
+offset_bottom = 95.0
 text = "Seeds: 0"
 
 [node name="DayLabel" type="Label" parent="UI" unique_id=1640992634]
-offset_left = 4.0
-offset_top = 21.0
-offset_right = 52.0
-offset_bottom = 44.0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 56.0
+offset_bottom = 47.0
 text = "Day: 1"
 
 [node name="GoalLabel" type="Label" parent="UI" unique_id=2106458917]
-offset_left = 117.0
-offset_right = 232.0
+offset_left = 120.0
+offset_right = 235.0
 offset_bottom = 23.0
 text = "Goal: 0/3 crops"
 
 [node name="MoneyLabel" type="Label" parent="UI" unique_id=650826694]
-offset_left = 3.0
-offset_top = 41.0
-offset_right = 74.0
-offset_bottom = 64.0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 79.0
+offset_bottom = 71.0
 text = "Money: 0"
 
+[node name="EggLabel" type="Label" parent="UI" unique_id=1587546259]
+offset_left = 120.0
+offset_top = 24.0
+offset_right = 173.0
+offset_bottom = 47.0
+text = "Eggs: 0"
+
 [node name="NextDayButton" type="Button" parent="UI" unique_id=294764296]
-offset_left = 1063.0
-offset_top = 9.0
-offset_right = 1142.0
-offset_bottom = 40.0
+offset_left = 1056.0
+offset_top = 8.0
+offset_right = 1135.0
+offset_bottom = 39.0
 text = "Next Day"
 
 [node name="DayMessageTimer" type="Timer" parent="UI" unique_id=1591059937]
@@ -231,17 +237,17 @@ text = "New Day!"
 horizontal_alignment = 1
 
 [node name="SellButton" type="Button" parent="UI" unique_id=2026511865]
-offset_left = 970.0
-offset_top = 9.0
-offset_right = 1054.0
-offset_bottom = 40.0
-text = "Sell Crops"
+offset_left = 848.0
+offset_top = 8.0
+offset_right = 987.0
+offset_bottom = 39.0
+text = "Sell Crops & Eggs"
 
 [node name="ShopButton" type="Button" parent="UI" unique_id=460466851]
-offset_left = 914.0
-offset_top = 9.0
-offset_right = 961.0
-offset_bottom = 40.0
+offset_left = 1000.0
+offset_top = 8.0
+offset_right = 1047.0
+offset_bottom = 39.0
 text = "Shop
 "
 

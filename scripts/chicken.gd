@@ -6,6 +6,7 @@ var target_position = Vector2.ZERO
 var moving = false
 var wait_timer = 0.0
 var was_clicked = false
+var can_give_egg = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,8 +47,26 @@ func choose_new_target() -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and can_give_egg:
 			print("Chicken clicked")
+			$ReactionLabel.visible = true
+			$ReactionTimer.start()
+			
+			var main = get_tree().current_scene
+			main.eggs += 1
+			main.update_egg_label()
+			
+			can_give_egg = false
+			$EggTimer.start()
+			
 			moving = false
 			wait_timer = 2.0
 			$AnimatedSprite2D.play("idle")
+
+
+func _on_egg_timer_timeout() -> void:
+	can_give_egg = true
+
+
+func _on_reaction_timer_timeout() -> void:
+	$ReactionLabel.visible = false

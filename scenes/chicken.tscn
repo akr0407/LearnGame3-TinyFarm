@@ -68,6 +68,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs3mr"]
 radius = 5.0
 
+[sub_resource type="Theme" id="Theme_1yv3s"]
+default_font_size = 8
+
 [node name="Chicken" type="Area2D" unique_id=1851406013]
 script = ExtResource("1_1yv3s")
 
@@ -82,4 +85,23 @@ frame_progress = 0.30600503
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_hs3mr")
 
+[node name="EggTimer" type="Timer" parent="." unique_id=1288395236]
+wait_time = 5.0
+
+[node name="ReactionLabel" type="Label" parent="." unique_id=665187390]
+visible = false
+texture_filter = 1
+offset_left = 6.0
+offset_top = -17.0
+offset_right = 25.0
+offset_bottom = -8.0
+theme = SubResource("Theme_1yv3s")
+theme_override_font_sizes/font_size = 12
+text = "Cluck!"
+
+[node name="ReactionTimer" type="Timer" parent="." unique_id=1685775307]
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="EggTimer" to="." method="_on_egg_timer_timeout"]
+[connection signal="timeout" from="ReactionTimer" to="." method="_on_reaction_timer_timeout"]

@@ -5,6 +5,7 @@ var day = 1
 var money = 0
 var seeds = 3
 var daily_goal = 3
+var eggs = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -50,18 +51,25 @@ func _on_day_message_timer_timeout() -> void:
 
 
 func _on_sell_button_pressed() -> void:
-	if crop_count <= 0:
-		print("no crop to sell!")
+	if crop_count <= 0 and eggs <= 0:
+		print("nothing to sell!")
 		return
 	
-	print("Sold ", crop_count, " crops!")
-	var earnings = crop_count * 10
+	var crop_earnings = crop_count * 10
+	var egg_earnings = eggs * 5
+	var total_earnings = crop_earnings + egg_earnings
+	
+	print("Sold crops for ", crop_earnings, " gold!")
+	print("Sold eggs for ", egg_earnings, " gold!")
+	print("Total earnings: ", total_earnings, " gold!")
+	
+	money += total_earnings
 	
 	crop_count = 0
+	eggs = 0
+	
 	$UI/CropLabel.text = "Crops: 0"
-	
-	money += earnings
-	
+	$UI/EggLabel.text = "Eggs: 0"
 	$UI/MoneyLabel.text = "Money: " + str(money)
 
 
@@ -89,3 +97,6 @@ func _on_close_button_pressed() -> void:
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func update_egg_label() -> void:
+	$UI/EggLabel.text = "Eggs: " + str(eggs)
