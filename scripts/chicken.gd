@@ -15,6 +15,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if get_tree().current_scene.game_completed:
+		moving = false
+		$AnimatedSprite2D.play("idle")
+		return
+		
 	if moving:
 		$AnimatedSprite2D.play("walk")
 		

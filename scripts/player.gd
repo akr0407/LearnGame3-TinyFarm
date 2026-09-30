@@ -47,6 +47,10 @@ func face_target(target_position: Vector2) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if get_tree().current_scene.game_completed:
+		velocity = Vector2.ZERO
+		return
+		
 	if is_watering:
 		velocity = Vector2.ZERO
 		return
