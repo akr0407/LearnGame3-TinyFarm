@@ -341,13 +341,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -15.5
-offset_right = 32.5
-offset_bottom = 15.5
+offset_left = -44.0
+offset_top = -2.0
+offset_right = 44.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play Again"
+
+[node name="StatsLabel" type="Label" parent="UI/VictoryPanel" unique_id=1069307556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -47.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Crops harvested: 3"
 
 [connection signal="body_exited" from="FarmPlot" to="FarmPlot" method="_on_body_exited"]
 [connection signal="body_exited" from="FarmPlot2" to="FarmPlot2" method="_on_body_exited"]

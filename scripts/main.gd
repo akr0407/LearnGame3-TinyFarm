@@ -24,7 +24,22 @@ func add_crop() -> void:
 	
 	if crop_count >= daily_goal:
 		print("Daily goal complete!")
+		
 		game_completed = true
+		
+		$UI/VictoryPanel/StatsLabel.text = "Crops harvested: " + str(crop_count) + "\nMoney earned: " + str(money)
+		
+		#Hide all ui
+		$UI/CropLabel.visible = false
+		$UI/SeedLabel.visible = false
+		$UI/DayLabel.visible = false
+		$UI/GoalLabel.visible = false
+		$UI/MoneyLabel.visible = false
+		$UI/EggLabel.visible = false
+		$UI/NextDayButton.visible = false
+		$UI/SellButton.visible = false
+		$UI/ShopButton.visible = false
+		
 		$UI/VictoryPanel.visible = true
 
 func update_seed_label() -> void:
